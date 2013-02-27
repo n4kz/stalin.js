@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+'use strict';
+
+var Ulfsaar = require('../lib/main'),
+	basename = require('path').basename,
+	optimist = require('optimist'),
+	fs = require('fs'),
+	glob =  require('glob'),
+	argv = optimist
+		.usage([
+			'Usage:',
+			'    ulfsaar <path>',
+			'    ulfsaar --version'
+		].join('\n'))
+		.argv;
+
+if (argv.version) {
+	console.log(require('../package').version);
+	process.exit();
+}
+
+if (argv.help || argv._.length !== 1) {
+	optimist.showHelp();
+	process.exit(1);
+}
+
+var template = argv._[0],
+	path = fs.lstatSync(template),
+	i, l, templates, file, name, single;
+
+if (path.isDirectory()) {
+	templates = glob.sync(template + '/**/*.mustache', { nomount: true });
+} else if (path.isFile()) {
+	single = true;
+	templates = [template];
+}
+
+path = template;
+
+for (i = 0, l = templates.length; i < l; i++) {
+	file = templates[i];
+
+	name = file.replace(/\.mustache$/, '.js');
+
+	template = fs.readFileSync(file).toString();
+
+	template = "(Ulfsaar['" + basename(name).replace(/.js$/, '') + "']=function(S){" + Ulfsaar._.compile(template) + "});";
+
+	if (single) {
+		console.log(template);
+	} else {
+		console.log(name);
+		fs.writeFileSync(name, template);
+	}
+}
+
+/* vim: set ft=javascript : */

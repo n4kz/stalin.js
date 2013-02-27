@@ -1,0 +1,30 @@
+{
+	"name": "ulfsaar",
+	"version": "0.0.1",
+	"description": "Lightweight mustache implementation",
+	"main": "lib/main.js",
+	"license": "LGPLv3",
+	"preferGlobal": true,
+	"author": {
+		"name": "Alexander Nazarov",
+		"email": "n4kz@n4kz.com"
+	},
+	"bin": {
+		"ulfsaar": "bin/ulfsaar"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/n4kz/ulfsaar.git"
+	},
+	"dependencies": {
+		"glob": "*",
+		"optimist": "*"
+	},
+	"devDependencies": {
+		"coffee-script": "*",
+		"vows": "*"
+	},
+	"engines": {
+		"node": ">=0.6.0"
+	}
+}
