@@ -8,7 +8,7 @@ Lightweight [mustache](http://mustache.github.com) template compiler
 * Compiled templates have no dependencies
 * Minified and gzipped version is less than one KB in size
 
-# Installation (not published yet)
+# Installation
 
 ```bash
 # Global
@@ -110,7 +110,6 @@ will register themselves on Ulfsaar object when loaded.
 * Performance comparison
 * Extension to use blocks (like jade or many others)
 * Direct access to escape from helpers
-* Publish npm package
 
 # Copyright and License
 
