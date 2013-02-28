@@ -1,7 +1,8 @@
 {
 	"name": "ulfsaar",
 	"version": "0.0.1",
-	"description": "Lightweight mustache implementation",
+	"description": "Lightweight mustache template compiler",
+	"keywords": ["template", "mustache", "compiler"],
 	"main": "lib/main.js",
 	"license": "LGPLv3",
 	"preferGlobal": true,
