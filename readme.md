@@ -106,7 +106,6 @@ will register themselves on Ulfsaar object when loaded.
 # TODO
 
 * AMD compatibility
-* Performance comparison
 * Extension to use blocks (like jade or many others)
 
 # Copyright and License
