@@ -137,4 +137,12 @@ check = (template, result, data) ->
 					}
 				]
 			})
+
+			'nested property': check('{{#data}}{{a.b}}{{/data}}', 'EFG', {
+				data: [{ a: b: 'E' }, null, { a: b: 'G' }],
+				a: b: 'F'
+			})
+
+			'double': check('{{#data}}{{#data}}F{{/data}}{{/data}}', 'FFFF', data: [null, null])
+			'double inverted': check('{{#data}}{{^data}}F{{/data}}{{/data}}', '', data: [null, null])
 	.export module
