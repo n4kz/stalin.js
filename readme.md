@@ -56,9 +56,9 @@ Ulfsaar('link', '<a href="{{&href}}">{{title}}</a>');
 or as custom function
 
 ```javascript
-Ulfsaar.link = function (s) {
-	/* Call to s() does scope lookup and returns unescaped value */
-	return '<a href="' + s('href') + '">' + Ulfsaar._.escape(s('title')) + '</a>';
+Ulfsaar.link = function (scope, escape) {
+	/* Call to scope() does scope lookup and returns unescaped value */
+	return '<a href="' + scope('href') + '">' + escape(scope('title')) + '</a>';
 };
 ```
 
@@ -109,7 +109,6 @@ will register themselves on Ulfsaar object when loaded.
 * Tests
 * Performance comparison
 * Extension to use blocks (like jade or many others)
-* Direct access to escape from helpers
 
 # Copyright and License
 
