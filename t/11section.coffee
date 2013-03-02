@@ -7,8 +7,6 @@ check = (template, result, data) ->
 		assert.equal result, Ulfsaar[fn] data
 
 (vows = require 'vows')
-
-(vows = require 'vows')
 	.describe('Check section logic')
 	.addBatch
 		'basic':
@@ -44,16 +42,13 @@ check = (template, result, data) ->
 			'true array'      : check('{{#data}}1{{/data}}', '1', data: [ 2 ])
 
 			'unclosed': ->
-				assert.throws ->
-					check('{{#data}}', '', data: [])()
+				assert.throws check('{{#data}}', '', data: [])
 
 			'empty stack': ->
-				assert.throws ->
-					check('{{/data}}', '', data: [])()
+				assert.throws check('{{/data}}', '', data: [])
 
 			'mismatch': ->
-				assert.throws ->
-					check('{{#data}}{{/nodata}}', '', data: [])()
+				assert.throws check('{{#data}}{{/nodata}}', '', data: [])
 
 		'inverted':
 			topic: 'section'
@@ -89,12 +84,10 @@ check = (template, result, data) ->
 			'true array'      : check('{{^data}}1{{/data}}', '',  data: [ 2 ])
 
 			'unclosed': ->
-				assert.throws ->
-					check('{{^data}}', '', data: [])()
+				assert.throws check('{{^data}}', '', data: [])
 
 			'mismatch': ->
-				assert.throws ->
-					check('{{^data}}{{/nodata}}', '', data: [])()
+				assert.throws check('{{^data}}{{/nodata}}', '', data: [])
 
 		'loop':
 			topic: 'section'
