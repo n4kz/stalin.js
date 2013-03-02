@@ -1,6 +1,6 @@
 {
 	"name": "ulfsaar",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "Lightweight mustache template compiler",
 	"keywords": ["template", "mustache", "compiler"],
 	"main": "lib/main.js",
