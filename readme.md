@@ -4,9 +4,9 @@ Lightweight [mustache](http://mustache.github.com) template compiler
 
 # Why?
 
-* Compile your mustache
+* Just for fun
 * Compiled templates have no dependencies
-* Minified and gzipped version is less than one KB in size
+* Minified and gzipped version is less than 1KB in size
 
 # Installation
 
@@ -107,6 +107,7 @@ will register themselves on Ulfsaar object when loaded.
 
 * AMD compatibility
 * Extension to use blocks (like jade or many others)
+* Extension to make current item in list accessible
 * Run tests against minified version
 
 # Copyright and License
