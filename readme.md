@@ -107,6 +107,7 @@ will register themselves on Ulfsaar object when loaded.
 
 * AMD compatibility
 * Extension to use blocks (like jade or many others)
+* Run tests against minified version
 
 # Copyright and License
 
