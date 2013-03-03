@@ -8,8 +8,7 @@ Ulfsaar = require '../lib/main'
 			topic: 'template'
 
 			'compilation': (topic) ->
-				Ulfsaar('a', topic)
-
+				assert.isFunction Ulfsaar('a', topic)
 				assert.isFunction Ulfsaar.a
 				assert.equal Ulfsaar.a(), topic
 
@@ -17,12 +16,12 @@ Ulfsaar = require '../lib/main'
 				fn = 'b'
 
 				# Compile function
-				Ulfsaar fn, topic
+				assert.isFunction Ulfsaar fn, topic
 				assert.isFunction Ulfsaar[fn]
 				initial = Ulfsaar[fn]
 
 				# Replace it
-				Ulfsaar fn, topic
+				assert.isFunction Ulfsaar fn, topic
 				assert.isFunction Ulfsaar[fn]
 
 				# Function recompiled
