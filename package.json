@@ -1,15 +1,13 @@
 {
 	"name": "ulfsaar",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Lightweight mustache template compiler",
 	"keywords": ["template", "mustache", "compiler"],
 	"main": "lib/main.js",
 	"license": "LGPLv3",
 	"preferGlobal": true,
-	"author": {
-		"name": "Alexander Nazarov",
-		"email": "n4kz@n4kz.com"
-	},
+	"author":  "Alexander Nazarov <n4kz@n4kz.com>",
+	"maintainers": ["Alexander Nazarov <n4kz@n4kz.com>"],
 	"bin": {
 		"ulfsaar": "bin/ulfsaar"
 	},
@@ -23,9 +21,13 @@
 	},
 	"devDependencies": {
 		"coffee-script": "*",
-		"vows": "*"
+		"vows": "*",
+		"uglify-js": "*"
 	},
 	"engines": {
 		"node": ">=0.6.0"
+	},
+	"scripts": {
+		"test": "make"
 	}
 }
