@@ -24,6 +24,8 @@ npm install ulfsaar
 * Lambdas are not supported (no simple way to get template source from compiled one)
 * Partials are functions (templates or helpers at your choise, see below)
 * `{{{ }}}` Not supported, use `{{& }}` instead to get unescaped output
+* All CRs are converted to LFs before processing
+* LFs from lines with standalone tags are not removed
 
 # Usage
 
@@ -105,9 +107,6 @@ will register themselves on Ulfsaar object when loaded.
 
 # TODO
 
-* AMD compatibility
-* Extension to use blocks (like jade or many others)
-* Extension to make current item in list accessible
 * Run tests against minified version
 
 # Copyright and License
