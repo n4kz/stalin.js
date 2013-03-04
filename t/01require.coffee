@@ -5,7 +5,7 @@ assert = require 'assert'
 	.addBatch
 		'require':
 			'topic':
-				ulfsaar: require '../lib/main'
+				ulfsaar: require process.env.MINIFIED and '../ulfsaar.min' or '../lib/main'
 
 			'Ulfsaar': (topic) ->
 				ulfsaar = topic.ulfsaar

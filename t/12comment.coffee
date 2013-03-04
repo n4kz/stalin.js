@@ -1,5 +1,5 @@
 assert = require 'assert'
-Ulfsaar = require '../lib/main'
+Ulfsaar = require process.env.MINIFIED and '../ulfsaar.min' or '../lib/main'
 
 check = (template, result, data) ->
 	(fn) ->

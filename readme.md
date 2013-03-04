@@ -105,10 +105,6 @@ will register themselves on Ulfsaar object when loaded.
 <script>console.log(Ulfsaar.index({ test: true }));</script>
 ```
 
-# TODO
-
-* Run tests against minified version
-
 # Copyright and License
 
 Copyright 2013 Alexander Nazarov. All rights reserved.
