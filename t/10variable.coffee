@@ -12,6 +12,8 @@ check = (template, result, data) ->
 		'basic':
 			topic: 'interpolation'
 
+			'no data'      : check('{{data}}',          '')
+			'null data'    : check('{{data}}',          '',                null)
 			'empty'        : check('{{data}}',          '',                {})
 			'boolean false': check('{{data}}',          '',                { data: false })
 			'boolean true' : check('{{data}}',          'true',            { data: true })
@@ -35,16 +37,18 @@ check = (template, result, data) ->
 		'unescaped':
 			topic: 'interpolation'
 
+			'no data'      : check('{{&data}}',           '')
+			'null data'    : check('{{&data}}',           '',                null)
 			'empty'        : check('{{&data}}',           '',                {})
-			'boolean false': check('{{data}}',            '',                { data: false })
-			'boolean true' : check('{{data}}',            'true',            { data: true })
+			'boolean false': check('{{&data}}',           '',                { data: false })
+			'boolean true' : check('{{&data}}',           'true',            { data: true })
 			'undefined'    : check('{{&data}}',           '',                { data: undefined })
 			'null'         : check('{{&data}}',           '',                { data: null })
 			'zero'         : check('{{&data}}',           '0',               { data: 0 })
 			'number'       : check('{{&data}}',           '1',               { data: 1 })
 			'float'        : check('{{&data}}',           '1.15',            { data: 1.15 })
 			'object'       : check('{{&data}}',           '[object Object]', { data: {} })
-			'array'        : check('{{data}}',            '',                { data: [] })
+			'array'        : check('{{&data}}',           '',                { data: [] })
 			'function'     : check('{{&data}}',           'function () {}',  { data: -> })
 			'single'       : check('{{&data}}',           'TEST',            data: 'TEST')
 			'multiple'     : check('{{&data}} {{&data}}', 'TEST TEST',       data: 'TEST')
@@ -59,6 +63,8 @@ check = (template, result, data) ->
 		'property':
 			topic: 'interpolation'
 
+			'no data'      : check('{{data.text.a}}',             '')
+			'null data'    : check('{{data.text.a}}',             '',              null)
 			'single'       : check('{{data.text}}',               'TEST',          data: text: 'TEST')
 			'multiple'     : check('{{data.text}} {{data.text}}', 'TEST TEST',     data: text: 'TEST')
 			'prefix'       : check('test {{data.text}}',          'test TEST',     data: text: 'TEST')
@@ -68,10 +74,13 @@ check = (template, result, data) ->
 			'spaces right' : check('{{data.text  }}',             'TEST',          data: text: 'TEST')
 			'spaces both'  : check('{{ data.text }}',             'TEST',          data: text: 'TEST')
 			'multilevel'   : check('{{data.text.a}}',             'TEST',          data: text: a: 'TEST')
+			'missed'       : check('{{data.text.a}}',             '',              data: test: 1)
 
 		'unescaped property':
 			topic: 'interpolation'
 
+			'no data'      : check('{{&data.text.a}}',              '')
+			'null data'    : check('{{&data.text.a}}',              '',              null)
 			'single'       : check('{{&data.text}}',                'TEST',          data: text: 'TEST')
 			'multiple'     : check('{{&data.text}} {{&data.text}}', 'TEST TEST',     data: text: 'TEST')
 			'prefix'       : check('test {{&data.text}}',           'test TEST',     data: text: 'TEST')
@@ -81,5 +90,6 @@ check = (template, result, data) ->
 			'spaces right' : check('{{&data.text  }}',              'TEST',          data: text: 'TEST')
 			'spaces both'  : check('{{& data.text }}',              'TEST',          data: text: 'TEST')
 			'multilevel'   : check('{{&data.text.a}}',              'TEST',          data: text: a: 'TEST')
+			'missed'       : check('{{&data.text.a}}',              '',              data: test: 1)
 
 	.export module

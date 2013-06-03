@@ -12,6 +12,8 @@ check = (template, result, data) ->
 		'basic':
 			topic: 'section'
 
+			'no data'         : check('{{#data}}{{/data}}',                '')
+			'null data'       : check('{{#data}}{{/data}}',                '',         null)
 			'empty false'     : check('{{#data}}{{/data}}',                '',         {})
 			'text false'      : check('{{#data}}test{{/data}}',            '',         {})
 			'prefix false'    : check('frr{{#data}}12{{/data}}',           'frr',      {})
@@ -53,6 +55,8 @@ check = (template, result, data) ->
 		'inverted':
 			topic: 'section'
 
+			'no data'         : check('{{^data}}{{/data}}',                '')
+			'null data'       : check('{{^data}}{{/data}}',                '',         null)
 			'empty false'     : check('{{^data}}{{/data}}',                '',         {})
 			'text false'      : check('{{^data}}test{{/data}}',            'test',     {})
 			'prefix false'    : check('frr{{^data}}12{{/data}}',           'frr12',    {})
@@ -104,8 +108,9 @@ check = (template, result, data) ->
 		'property':
 			topic: 'section'
 
-			'single'     : check('{{#data.test}}{{name}}{{/data.test}}',     'ok', data: test: [ name: 'ok' ])
-			'multilevel' : check('{{#data.test.name}}ok{{/data.test.name}}', 'ok', data: test: name: ['ok'])
+			'missed'     : check('{{#data.test.value}}not_ok{{/data.test.value}}', '',   data: 0)
+			'single'     : check('{{#data.test}}{{name}}{{/data.test}}',           'ok', data: test: [ name: 'ok' ])
+			'multilevel' : check('{{#data.test.name}}ok{{/data.test.name}}',       'ok', data: test: name: ['ok'])
 
 		'scope':
 			topic: 'section'
