@@ -1,10 +1,10 @@
 assert = require 'assert'
-Ulfsaar = require process.env.MINIFIED and '../ulfsaar.min' or '../lib/main'
+Stalin = require process.env.MINIFIED and '../stalin.min' or '../lib/main'
 
 check = (template, result, data) ->
 	(fn) ->
-		Ulfsaar fn, template
-		assert.equal result, Ulfsaar[fn] data
+		Stalin fn, template
+		assert.equal result, Stalin[fn] data
 
 (vows = require 'vows')
 	.describe('Check variable interpolation')

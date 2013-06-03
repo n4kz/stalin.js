@@ -1,26 +1,26 @@
-# Ulfsaar
+# Stalin
 
-Lightweight [mustache](http://mustache.github.com) template compiler
+Badass [mustache](http://mustache.github.com) compiler
 
 # Why?
 
-* Just for fun
+* In Soviet Russia template compiles you
 * Compiled templates have no dependencies
-* Minified and gzipped version is less than 1KB in size
+* Minified and gzipped version is 1KB in size
+* Joseph Stalin => stalin.js
 
 # Installation
 
 ```bash
 # Global
-npm -g install ulfsaar
+npm -g install stalin
 
 # Local
-npm install ulfsaar
+npm install stalin
 ```
 
 # Difference
 
-* You need to compile templates
 * Lambdas are not supported (no simple way to get template source from compiled one)
 * Partials are functions (templates or helpers at your choise, see below)
 * `{{{ }}}` Not supported, use `{{& }}` instead to get unescaped output
@@ -32,16 +32,16 @@ npm install ulfsaar
 ## API
 
 ```javascript
-var Ulfsaar = require('ulfsaar');
+var Stalin = require('stalin');
 
 /* Compile template and save reference */
-Ulfsaar('example', '{{#first}}{{example}}{{/first}}');
+Stalin('example', '{{#first}}{{example}}{{/first}}');
 
 /* Render compiled template */
-console.log(Ulfsaar.example({ first: true, example: 'Hello world' }));
+console.log(Stalin.example({ first: true, example: 'Hello world' }));
 ```
 
-Some internal functions are accessible via `Ulfsaar._`
+Some internal functions are accessible via `Stalin._`
 
 * `escape`
 * `compile`
@@ -52,13 +52,13 @@ Some internal functions are accessible via `Ulfsaar._`
 Partials can be defined as another template
 
 ```javascript
-Ulfsaar('link', '<a href="{{&href}}">{{title}}</a>');
+Stalin('link', '<a href="{{&href}}">{{title}}</a>');
 ```
 
 or as custom function
 
 ```javascript
-Ulfsaar.link = function (scope, escape) {
+Stalin.link = function (scope, escape) {
 	/* Call to scope() does scope lookup and returns unescaped value */
 	return '<a href="' + scope('href') + '">' + escape(scope('title')) + '</a>';
 };
@@ -67,9 +67,9 @@ Ulfsaar.link = function (scope, escape) {
 and used later
 
 ```javascript
-Ulfsaar('linkbar', '{{#linkbar.length}}<ul>{{#linkbar}}<li>{{>link}}</li>{{/linkbar}}</ul>{{/linkbar.length}}');
+Stalin('linkbar', '{{#linkbar.length}}<ul>{{#linkbar}}<li>{{>link}}</li>{{/linkbar}}</ul>{{/linkbar.length}}');
 
-console.log(Ulfsaar.linkbar({
+console.log(Stalin.linkbar({
 	linkbar: [
 		{ href: '/about',    title: 'About' },
 		{ href: '/contacts', title: 'Contacts' }
@@ -88,21 +88,21 @@ to get result like that
 ```bash
 # Compile all *.mustache files in folder
 # and subfolders and save with .js extension
-ulfsaar public/templates/
+stalin public/templates/
 
 # Compile single file and print it
-ulfsaar public/index.mustache
+stalin public/index.mustache
 ```
 
 ## Client
 
-To use compiled templates without Ulfsaar itself you need to define `window.Ulfsaar` before loading any template. Templates
-will register themselves on Ulfsaar object when loaded.
+To use compiled templates without Stalin itself you need to define `window.Stalin` before loading any template. Templates
+will register themselves on Stalin object when loaded.
 
 ```html
-<script>var Ulfsaar = {};</script>
+<script>var Stalin = {};</script>
 <script src="/templates/index.js"></script>
-<script>console.log(Ulfsaar.index({ test: true }));</script>
+<script>console.log(Stalin.index({ test: true }));</script>
 ```
 
 # Copyright and License

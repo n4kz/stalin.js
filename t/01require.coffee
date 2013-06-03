@@ -5,17 +5,17 @@ assert = require 'assert'
 	.addBatch
 		'require':
 			'topic':
-				ulfsaar: require process.env.MINIFIED and '../ulfsaar.min' or '../lib/main'
+				stalin: require process.env.MINIFIED and '../stalin.min' or '../lib/main'
 
-			'Ulfsaar': (topic) ->
-				ulfsaar = topic.ulfsaar
+			'Stalin': (topic) ->
+				stalin = topic.stalin
 
-				assert.isFunction ulfsaar
-				assert.equal Object.keys(ulfsaar).length, 1
-				assert.isUndefined global.Ulfsaar
+				assert.isFunction stalin
+				assert.equal Object.keys(stalin).length, 1
+				assert.isUndefined global.Stalin
 
-			'Ulfsaar._': (topic) ->
-				_ = topic.ulfsaar._
+			'Stalin._': (topic) ->
+				_ = topic.stalin._
 
 				assert.isObject _
 				assert.isFunction _.fn

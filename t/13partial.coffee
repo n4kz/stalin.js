@@ -1,15 +1,15 @@
 assert = require 'assert'
-Ulfsaar = require process.env.MINIFIED and '../ulfsaar.min' or '../lib/main'
+Stalin = require process.env.MINIFIED and '../stalin.min' or '../lib/main'
 
 check = (template, result, data) ->
 	(fn) ->
-		Ulfsaar fn, template
-		assert.equal result, Ulfsaar[fn] data
+		Stalin fn, template
+		assert.equal result, Stalin[fn] data
 
-Ulfsaar.wrap = (scope, escape) ->
+Stalin.wrap = (scope, escape) ->
 	':' + scope('data') + ':'
 
-Ulfsaar('double', '{{data}}{{data}}')
+Stalin('double', '{{data}}{{data}}')
 
 (vows = require 'vows')
 	.describe('Check partial logic')

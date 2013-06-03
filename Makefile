@@ -1,7 +1,7 @@
 all: test test-min
 
 min:
-	uglifyjs lib/main.js -o ulfsaar.min.js --compress --mangle -r '_,Ulfsaar'
+	uglifyjs lib/main.js -o stalin.min.js --compress --mangle -r '_,Stalin'
 
 compile:
 	coffee --lint --compile  t/*.coffee

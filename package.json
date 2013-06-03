@@ -1,19 +1,18 @@
 {
-	"name": "ulfsaar",
+	"name": "stalin",
 	"version": "0.1.1",
-	"description": "Lightweight mustache template compiler",
-	"keywords": ["template", "mustache", "compiler"],
+	"description": "Badass mustache compiler",
+	"keywords": ["template", "templates", "mustache", "compiler"],
 	"main": "lib/main.js",
 	"license": "LGPLv3",
 	"preferGlobal": true,
 	"author":  "Alexander Nazarov <n4kz@n4kz.com>",
-	"maintainers": ["Alexander Nazarov <n4kz@n4kz.com>"],
 	"bin": {
-		"ulfsaar": "bin/ulfsaar"
+		"stalin": "bin/stalin"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/n4kz/ulfsaar.git"
+		"url": "git://github.com/n4kz/stalin.js.git"
 	},
 	"dependencies": {
 		"glob": "*",
