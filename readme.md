@@ -24,6 +24,7 @@ npm install stalin
 * Lambdas are not supported (no simple way to get template source from compiled one)
 * Partials are functions (templates or helpers at your choise, see below)
 * `{{{ }}}` Not supported, use `{{& }}` instead to get unescaped output
+* Magic RegExp characters can not be used as delimiters (ex: `{{=[ ]=}}`)
 * All CRs are converted to LFs before processing
 * LFs from lines with standalone tags are not removed
 
