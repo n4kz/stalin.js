@@ -1,10 +1,10 @@
 all: test test-min
 
 min:
-	uglifyjs lib/main.js -o stalin.min.js --compress --mangle -r '_,Stalin'
+	uglifyjs lib/main.js -o stalin.min.js --compress --mangle
 
 compile:
-	coffee --lint --compile  t/*.coffee
+	coffee --compile t/*.coffee
 
 test-min: compile min
 	MINIFIED=1 vows --tap -i t/*.js
