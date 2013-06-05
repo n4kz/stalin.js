@@ -20,6 +20,5 @@ assert = require 'assert'
 				assert.isObject _
 				assert.isFunction _.fn
 				assert.isFunction _.compile
-				assert.isFunction _.escape
 
 	.export module

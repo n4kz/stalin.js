@@ -43,9 +43,8 @@ console.log(Stalin.example({ first: true, example: 'Hello world' }));
 
 Some internal functions are accessible via `Stalin._`
 
-* `escape`
-* `compile`
-* `fn`
+* `compile` - compile template to string and return it
+* `fn` - compile, eval and return reference
 
 ## Partials
 

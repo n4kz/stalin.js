@@ -7,11 +7,6 @@ Stalin = require process.env.MINIFIED and '../stalin.min' or '../lib/main'
 		'entities':
 			topic: '{{data}}'
 
-			'standalone': ->
-				fn = Stalin._.escape
-				assert.equal fn('"\/"<<\n>>\''), '&#34;&#47;&#34;&#60;&#60;\n&#62;&#62;&#39;'
-				assert.equal fn('<a>test</a>'), '&#60;a&#62;test&#60;&#47;a&#62;'
-
 			'template': (topic) ->
 				Stalin 'escape', topic
 
