@@ -1,5 +1,7 @@
 all: test test-min
 
+BENCH=stalin hogan
+
 min:
 	uglifyjs lib/main.js -o stalin.min.js --compress --mangle
 
@@ -11,6 +13,9 @@ test-min: compile min
 
 test: compile
 	vows --tap -i t/*.js
+
+bench:
+	script/bench.sh $(BENCH)
 
 clean:
 	rm -f t/*.js
