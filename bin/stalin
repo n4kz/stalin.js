@@ -44,7 +44,7 @@ for (i = 0, l = templates.length; i < l; i++) {
 
 	template = fs.readFileSync(file).toString();
 
-	template = "(Stalin['" + basename(name).replace(/.js$/, '') + "']=function(S){" + Stalin._.compile(template) + "});";
+	template = "(Stalin['" + basename(name).replace(/.js$/, '') + "']=function(S){" + Stalin.process(template) + "});";
 
 	if (single) {
 		console.log(template);

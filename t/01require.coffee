@@ -11,14 +11,13 @@ assert = require 'assert'
 				stalin = topic.stalin
 
 				assert.isFunction stalin
-				assert.equal Object.keys(stalin).length, 1
+				assert.equal Object.keys(stalin).length, 2
 				assert.isUndefined global.Stalin
 
-			'Stalin._': (topic) ->
-				_ = topic.stalin._
+			'Stalin#functions': (topic) ->
+				stalin = topic.stalin
 
-				assert.isObject _
-				assert.isFunction _.fn
-				assert.isFunction _.compile
+				assert.isFunction stalin.process
+				assert.isFunction stalin.compile
 
 	.export module

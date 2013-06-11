@@ -39,13 +39,13 @@ var Stalin = require('stalin');
 Stalin('example', '{{#first}}{{example}}{{/first}}');
 
 /* Render compiled template */
-console.log(Stalin.example({ first: true, example: 'Hello world' }));
+console.log(Stalin.example({ first: true, example: 'Hello, world!' }));
 ```
 
-Some internal functions are accessible via `Stalin._`
+Some internal functions available
 
-* `compile` - compile template to string and return it
-* `fn` - compile, eval and return reference
+* `Stalin.process` - compile template to string and return it
+* `Stalin.compile` - compile, eval and return reference
 
 ## Partials
 

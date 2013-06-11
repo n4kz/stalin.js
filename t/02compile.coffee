@@ -62,12 +62,12 @@ Stalin = require process.env.MINIFIED and '../stalin.min' or '../lib/main'
 				# Compiled function was not modified
 				assert.equal Stalin[fn](), 0
 
-		'Stalin._.fn':
+		'Stalin.compile':
 			topic: 'example'
 
 			'compilation': (topic) ->
 				count = Object.keys(Stalin).length
-				fn = Stalin._.fn(topic)
+				fn = Stalin.compile topic
 
 				# Function compiled
 				assert.isFunction fn
@@ -79,11 +79,11 @@ Stalin = require process.env.MINIFIED and '../stalin.min' or '../lib/main'
 				assert.equal fn(), topic
 				assert.equal fn({}), topic
 
-		'Stalin._.compile':
+		'Stalin.process':
 			topic: 'new example'
 
 			'compilation': (topic) ->
-				fn = Stalin._.compile
+				fn = Stalin.process
 				template = fn topic
 				result = null
 
