@@ -26,7 +26,7 @@ switch process.argv[2]
 
 	when 'stalin'
 		Stalin = require '../lib/main'
-		fn = Stalin._.fn template
+		fn = Stalin.compile template
 
 	when 'milk'
 		Milk = require 'milk'
