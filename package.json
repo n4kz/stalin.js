@@ -1,6 +1,6 @@
 {
 	"name": "stalin",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "Badass mustache compiler",
 	"keywords": ["template", "templates", "mustache", "compiler"],
 	"main": "lib/main.js",
